@@ -30,7 +30,7 @@ namespace PPPKProjekt
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbName;
+        protected global::System.Web.UI.WebControls.TextBox lbName;
 
         /// <summary>
         /// lbLastname control.
@@ -39,7 +39,25 @@ namespace PPPKProjekt
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbLastname;
+        protected global::System.Web.UI.WebControls.TextBox lbLastname;
+
+        /// <summary>
+        /// lbMobile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lbMobile;
+
+        /// <summary>
+        /// lbDriving control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lbDriving;
 
         /// <summary>
         /// lblInfo control.
