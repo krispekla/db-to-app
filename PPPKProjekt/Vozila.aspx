@@ -1,18 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vozaci.aspx.cs" Inherits="PPPKProjekt.Vozaci" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vozila.aspx.cs" Inherits="PPPKProjekt.Vozila" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h2 class="m-3">Vozaci</h2>
+   <h2 class="m-3">Vozila</h2>
     <div class="container bg-light mt-3 p-5">
-        <div class="row">
-            <div class="col-6">
-
-                <legend>Pregled vozaca</legend>
-                <asp:GridView ID="gvDrivers" runat="server"></asp:GridView>
-            </div>
-
+        <%--<div class="row">
             <div class="col-6">
                 <fieldset>
+                    <legend>Pregled vozila</legend>
 
+                    <asp:GridView ID="gvDrivers" runat="server"></asp:GridView>
 
 
                     <br />
@@ -52,13 +47,10 @@
                             <asp:Button CssClass="btn btn-dark px-3" ID="btnClear" OnClick="btnClear_Click" runat="server" Text="Clear" />
                         </div>
                         <div class="col-2 ml-auto">
-                            <asp:Button CssClass="btn btn-danger px-3" ID="btnDelete" OnClick="btnDelete_Click" runat="server" Text="Delete" />
-                        </div>
-                        <div class="col-2 ml-auto">
                             <asp:Button CssClass="btn btn-primary px-3" ID="btnEditToggle" OnClick="btnEditToggle_Click" runat="server" Text="Edit" />
                         </div>
                         <div class="col-3 ml-3">
-                            <asp:Button CssClass="btn btn-primary px-3" ID="btnAddDriver" OnClick="btnAddDriver_Click" runat="server" Text="Add new" Enabled="false" />
+                            <asp:Button CssClass="btn btn-primary px-3" ID="btnAddDriver" OnClick="btnAddDriver_Click" runat="server" Text="Add new" Enabled="false"/>
                         </div>
                         <div class="col-2">
                             <asp:Button CssClass="btn btn-primary px-4" ID="btnSave" OnClick="btnSave_Click" runat="server" Text="Save" Enabled="false" />
@@ -67,7 +59,8 @@
 
                 </fieldset>
             </div>
-        </div>
+            <div class="col-6"></div>
+        </div>--%>
         <asp:Label ID="lblInfo" runat="server" Font-Bold="True" Font-Size="11px"
             ForeColor="Red"></asp:Label>
     </div>

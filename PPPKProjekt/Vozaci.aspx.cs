@@ -49,6 +49,9 @@ namespace PPPKProjekt
             lbLastname.Text = drivers[ddlDrivers.SelectedIndex].Lastname;
             lbMobile.Text = drivers[ddlDrivers.SelectedIndex].Mobile;
             lbDriving.Text = drivers[ddlDrivers.SelectedIndex].DrivingLicence;
+
+            gvDrivers.DataSource = drivers;
+            gvDrivers.DataBind();
         }
 
         protected void btnEditToggle_Click(object sender, EventArgs e)
@@ -139,6 +142,32 @@ namespace PPPKProjekt
         protected void btnClear_Click(object sender, EventArgs e)
         {
             ClearAllFields();
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = drivers[ddlDrivers.SelectedIndex].Id;
+
+                if (id <= 0) return;
+
+                int result = repo.DeleteDriver(id);
+                if (result == 200)
+                {
+                    GetAllDrivers();
+                    ToggleEditMode();
+                    lblInfo.Text = "Uspjesno izbrisan zapis";
+                }
+            }
+            catch (SqlException ex)
+            {
+                lblInfo.Text = "SQLException: " + ex.Message;
+            }
+            catch (Exception ex)
+            {
+                lblInfo.Text = "Exception: " + ex.Message;
+            }
         }
     }
 }

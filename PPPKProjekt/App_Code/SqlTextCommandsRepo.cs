@@ -16,6 +16,33 @@ namespace PPPKProjekt.App_Code
             this.cs = connectionString;
         }
 
+        public int DeleteDriver(int id)
+        {
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+                using (SqlCommand cmd = con.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = @"delete from Users where Id = @param1";
+                    cmd.Parameters.Add("@param1", SqlDbType.Int).Value = id;
+                    try
+                    {
+
+                        int r = cmd.ExecuteNonQuery();
+                        if (r == 0) return 400;
+
+                        return 200;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                }
+            }
+
+        }
+
         public List<Driver> GetAllDrivers()
         {
             List<Driver> list = new List<Driver>();

@@ -242,6 +242,7 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Vozaci.aspx" />
+    <Content Include="Vozila.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -292,6 +293,13 @@
     </Compile>
     <Compile Include="Vozaci.aspx.designer.cs">
       <DependentUpon>Vozaci.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vozila.aspx.cs">
+      <DependentUpon>Vozila.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vozila.aspx.designer.cs">
+      <DependentUpon>Vozila.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

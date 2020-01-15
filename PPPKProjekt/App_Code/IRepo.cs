@@ -10,5 +10,6 @@ namespace PPPKProjekt.App_Code
         List<Driver> GetAllDrivers();
         int InsertDriver(Driver driver);
         int UpdateDriver(Driver driver);
+        int DeleteDriver(int id);
     }
 }
