@@ -66,7 +66,7 @@ CREATE TABLE TravelOrder
 	Total_days int,
 	Created datetime default GETDATE(),
 	Modified datetime default GETDATE(),
-
+	StartingDate datetime not null
 )
 
 GO
@@ -152,3 +152,51 @@ EXEC [sys].[sp_MSforeachtable] 'ALTER TABLE ? CHECK CONSTRAINT ALL'
 
 GO
 
+-----------------------------------
+--Stored procedures
+------------------------------
+create proc sp_getAllVehicles
+as
+begin
+	SELECT * FROM Vehicle
+end
+go
+
+go
+
+create proc sp_insertVehicle
+	@vehicleType int,
+	@plate nvarchar(50),
+	@brand nvarchar(50),
+	@year date,
+	@isAvailable bit,
+	@milleage bigint
+as
+begin
+	  INSERT INTO Vehicle(VehicleTypeId, Plate, Brand, Production_Year, Vehicle_Status, Milleage) VALUES(@vehicleType, @plate, @brand, @year, @isAvailable, @milleage)
+end
+go
+
+create proc sp_updateVehicle
+	@id int,
+	@vehicleType int,
+	@plate nvarchar(50),
+	@brand nvarchar(50),
+	@year date,
+	@isAvailable bit,
+	@milleage bigint
+as
+begin
+	  UPDATE Vehicle
+	  SET VehicleTypeId = @vehicleType, Plate = @plate, Brand = @brand, Production_Year = @year, Vehicle_Status = @isAvailable, Milleage = @milleage
+	  WHERE Id = @id
+end
+go
+
+create proc sp_deleteVehicle
+	@id int
+as 
+begin
+	delete from Vehicle where Id = @id
+end
+go

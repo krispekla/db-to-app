@@ -12,9 +12,8 @@ namespace PPPKProjekt
 {
     public partial class Vozaci : System.Web.UI.Page
     {
-        private IRepo repo = new SqlTextCommandsRepo(ConfigurationManager.ConnectionStrings["cs"].ConnectionString);
+        private IRepo repo = new Repo(ConfigurationManager.ConnectionStrings["cs"].ConnectionString);
         private static List<Driver> drivers = new List<Driver>();
-        private static bool _addNewMode = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,7 +22,6 @@ namespace PPPKProjekt
                 GetAllDrivers();
                 DisplayAllDrivers();
             }
-
         }
 
         private void GetAllDrivers()
@@ -88,7 +86,7 @@ namespace PPPKProjekt
                 {
                     GetAllDrivers();
                     ToggleEditMode();
-                    lblInfo.Text = "Uspjesno promijenjeno";
+                    lblInfo.Text = "Uspjesno promijenjen zapis";
                 }
             }
             catch (SqlException ex)

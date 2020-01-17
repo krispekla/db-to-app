@@ -68,7 +68,7 @@
                 </fieldset>
             </div>
         </div>
-        <asp:Label ID="lblInfo" runat="server" Font-Bold="True" Font-Size="11px"
+        <asp:Label ID="lblInfo" runat="server" Font-Bold="True" Font-Size="14px"
             ForeColor="Red"></asp:Label>
     </div>
 </asp:Content>
