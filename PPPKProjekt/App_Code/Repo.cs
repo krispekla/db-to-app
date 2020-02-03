@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Transactions;
 
 namespace PPPKProjekt.App_Code
 {
@@ -219,7 +220,7 @@ namespace PPPKProjekt.App_Code
                     cmd.CommandText = "sp_updateVehicle";
 
                     cmd.Parameters.Add(new SqlParameter("@id", SqlDbType.Int) { Value = vehicle.Id });
-                    cmd.Parameters.Add(new SqlParameter("@vehicleType", SqlDbType.Int) { Value =vehicle.VehicleTypeId });
+                    cmd.Parameters.Add(new SqlParameter("@vehicleType", SqlDbType.Int) { Value = vehicle.VehicleTypeId });
                     cmd.Parameters.Add(new SqlParameter("@plate", SqlDbType.NVarChar, 50) { Value = vehicle.Plate });
                     cmd.Parameters.Add(new SqlParameter("@brand", SqlDbType.NVarChar, 50) { Value = vehicle.Brand });
                     cmd.Parameters.Add(new SqlParameter("@year", SqlDbType.Date) { Value = vehicle.Year });
@@ -275,5 +276,139 @@ namespace PPPKProjekt.App_Code
             }
 
         }
+
+        public List<TravelOrder> GetAllTravelOrder()
+        {
+            List<TravelOrder> list = new List<TravelOrder>();
+
+            using (TransactionScope trScope = new TransactionScope())
+            {
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+                    SqlCommand cmd1 = con.CreateCommand();
+                    SqlCommand cmd2 = con.CreateCommand();
+                    SqlCommand cmd3 = con.CreateCommand();
+                    SqlCommand cmd4 = con.CreateCommand();
+                    SqlCommand cmd5 = con.CreateCommand();
+                    SqlCommand cmd6 = con.CreateCommand();
+                    using (cmd1)
+                    {
+                        cmd1.CommandText = "select * from TravelOrder";
+                        cmd1.CommandType = CommandType.Text;
+                        using (SqlDataReader r = cmd1.ExecuteReader())
+                        {
+                            if (r.HasRows)
+                            {
+                                while (r.Read())
+                                {
+                                    list.Add(new TravelOrder
+                                    {
+
+                                        Id = (int)r["Id"],
+                                        OrderStatus = (int)r["OrderStatus"],
+                                        Vehicle = new Vehicle((int)r["VehicleID"]),
+                                        Driver = new Driver((int)r["UserID"]),
+                                        VehicleStartKM = (int)r["Vehicle_km_start"],
+                                        VehicleEndKM = ParseNullable<int>(r["Vehicle_km_end"].ToString()),
+                                        Distance = ParseNullable<int>(r["Distance_crossed"].ToString()),
+                                        StartingPoint = new Point((int)r["Starting_point"]),
+                                        FinnishPoint = new Point((int)r["Finish_point"]),
+                                        TotalDays = (int)r["Total_days"],
+                                        TotalPrice = ParseNullable<Decimal>(r["Total_price"].ToString()),
+                                        StartingDate = DateTime.Parse(r["Created"].ToString()),
+                                    });
+                                };
+                            }
+                        }
+
+                    }
+                    foreach (TravelOrder item in list)
+                    {
+                        int index = list.FindIndex(x => x.Id == item.Id);
+
+                        using (cmd2)
+                        {
+                            cmd2.CommandText = "select * from Vehicle where Id = @param1";
+                            cmd2.CommandType = CommandType.Text;
+
+                            cmd2.Parameters.Add("@param1", SqlDbType.Int).Value = item.Vehicle.Id;
+                            Vehicle veh = (Vehicle)cmd2.ExecuteScalar();
+                            list[index].Vehicle = veh;
+                        }
+                        using (cmd3)
+                        {
+                            cmd3.CommandText = "select * from Users where Id = @param1";
+                            cmd3.CommandType = CommandType.Text;
+
+                            cmd3.Parameters.Add("@param1", SqlDbType.Int).Value = item.Driver.Id;
+                            //TODO On dobije int ovdje, treba rucno konvertati vjerojatno
+                            Driver driver = (Driver)cmd3.ExecuteScalar();
+                            list[index].Driver = driver;
+                        }
+                        using (cmd4)
+                        {
+                            cmd4.CommandText = "select * from Point where Id = @param1";
+                            cmd4.CommandType = CommandType.Text;
+
+                            cmd4.Parameters.Add("@param1", SqlDbType.Int).Value = item.StartingPoint.Id;
+                            Point point = (Point)cmd4.ExecuteScalar();
+                            list[index].StartingPoint = point;
+                        }
+                        using (cmd5)
+                        {
+                            cmd5.CommandText = "select * from Point where Id = @param1";
+                            cmd5.CommandType = CommandType.Text;
+
+                            cmd5.Parameters.Add("@param1", SqlDbType.Int).Value = item.FinnishPoint.Id;
+                            Point point = (Point)cmd5.ExecuteScalar();
+                            list[index].FinnishPoint = point;
+                        }
+                        using (cmd6)
+                        {
+                            cmd6.CommandText = "select * from Status where TravelOrderId = @param1";
+                            cmd6.CommandType = CommandType.Text;
+
+                            cmd6.Parameters.Add("@param1", SqlDbType.Int).Value = item.Id;
+
+                            using (SqlDataReader r = cmd6.ExecuteReader())
+                            {
+                                if (r.HasRows)
+                                {
+                                    while (r.Read())
+                                    {
+                                        list[index].Statuses.Add(new Status
+                                        {
+                                            Code = (int)r["Code"],
+                                            Point = new Point((int)r["PointId"]),
+                                            TravelOrder = item
+                                        });
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                trScope.Complete();
+            }
+
+            return list;
+        }
+        public T ParseNullable<T>(string value)
+        {
+            if (value == null || value.Trim() == string.Empty)
+            {
+                return default(T);
+            }
+            else
+            {
+                try { return (T)System.ComponentModel.TypeDescriptor.GetConverter(typeof(T)).ConvertFrom(value.ToString()); }
+                catch
+                {
+                    return default(T);
+                }
+            }
+        }
     }
+
 }

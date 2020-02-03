@@ -16,6 +16,6 @@ namespace PPPKProjekt.App_Code
         int InsertVehicle(Vehicle vehicle);
         int UpdateVehicle(Vehicle vehicle);
         int DeleteVehicle(int id);
-
+        List<TravelOrder> GetAllTravelOrder();
     }
 }

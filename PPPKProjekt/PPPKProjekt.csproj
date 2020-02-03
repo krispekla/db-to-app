@@ -58,6 +58,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Transactions">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -260,7 +263,13 @@
   <ItemGroup>
     <Compile Include="App_Code\Driver.cs" />
     <Compile Include="App_Code\IRepo.cs" />
-    <Compile Include="App_Code\Repo.cs" />
+    <Compile Include="App_Code\Point.cs" />
+    <Compile Include="App_Code\Repo.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_Code\TravelOrder.cs" />
+    <Compile Include="App_Code\Status.cs" />
+    <Content Include="App_Code\StatusType.cs" />
     <Compile Include="App_Code\Vehicle.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

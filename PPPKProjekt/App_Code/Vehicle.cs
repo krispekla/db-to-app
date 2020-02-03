@@ -22,5 +22,14 @@ namespace PPPKProjekt.App_Code
         public DateTime? Year { get; set; }
         public bool IsAvailable { get; set; }
         public long Milleage { get; set; }
+
+        public Vehicle()
+        {
+
+        }
+        public Vehicle(int id)
+        {
+            this.Id = id;
+        }
     }
 }

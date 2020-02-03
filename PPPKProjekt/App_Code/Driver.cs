@@ -14,6 +14,13 @@ namespace PPPKProjekt.App_Code
         public string Mobile { get; set; }
         public string DrivingLicence { get; set; }
 
-     
+        public Driver()
+        {
+
+        }
+        public Driver(int id)
+        {
+            this.Id = id;
+        }
     }
 }
