@@ -333,8 +333,21 @@ namespace PPPKProjekt.App_Code
                             cmd2.CommandType = CommandType.Text;
 
                             cmd2.Parameters.Add("@param1", SqlDbType.Int).Value = item.Vehicle.Id;
-                            Vehicle veh = (Vehicle)cmd2.ExecuteScalar();
-                            list[index].Vehicle = veh;
+                            SqlDataReader r = cmd2.ExecuteReader();
+
+                            while (r.Read())
+                            {
+                                list[index].Vehicle = new Vehicle
+                                {
+                                    Id = (int)r["Id"],
+                                    VehicleTypeId = (int)r["VehicleTypeId"],
+                                    Plate = r["Plate"].ToString(),
+                                    Brand = r["Brand"].ToString(),
+                                    Year = DateTime.Parse(r["Year"].ToString()),
+                                    IsAvailable = (bool)r["IsAvailable"],
+                                    Milleage = (long)r["Milleage"]
+                                };
+                            }
                         }
                         using (cmd3)
                         {
@@ -342,9 +355,18 @@ namespace PPPKProjekt.App_Code
                             cmd3.CommandType = CommandType.Text;
 
                             cmd3.Parameters.Add("@param1", SqlDbType.Int).Value = item.Driver.Id;
-                            //TODO On dobije int ovdje, treba rucno konvertati vjerojatno
-                            Driver driver = (Driver)cmd3.ExecuteScalar();
-                            list[index].Driver = driver;
+                            SqlDataReader r = cmd3.ExecuteReader();
+                            while (r.Read())
+                            {
+                                list[index].Driver = new Driver
+                                {
+                                    Id = (int)r["Id"],
+                                    Name = r["Name"].ToString(),
+                                    Lastname = r["Surname"].ToString(),
+                                    Mobile = r["Mobile"].ToString(),
+                                    DrivingLicence = r["Driving_License"].ToString()
+                                };
+                            }
                         }
                         using (cmd4)
                         {
@@ -353,7 +375,10 @@ namespace PPPKProjekt.App_Code
 
                             cmd4.Parameters.Add("@param1", SqlDbType.Int).Value = item.StartingPoint.Id;
                             Point point = (Point)cmd4.ExecuteScalar();
-                            list[index].StartingPoint = point;
+                            list[index].StartingPoint = new Point
+                            {
+
+                            };
                         }
                         using (cmd5)
                         {
