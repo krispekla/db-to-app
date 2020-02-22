@@ -287,11 +287,6 @@ namespace PPPKProjekt.App_Code
                 {
                     con.Open();
                     SqlCommand cmd1 = con.CreateCommand();
-                    SqlCommand cmd2 = con.CreateCommand();
-                    SqlCommand cmd3 = con.CreateCommand();
-                    SqlCommand cmd4 = con.CreateCommand();
-                    SqlCommand cmd5 = con.CreateCommand();
-                    SqlCommand cmd6 = con.CreateCommand();
                     using (cmd1)
                     {
                         cmd1.CommandText = "select * from TravelOrder";
@@ -304,114 +299,23 @@ namespace PPPKProjekt.App_Code
                                 {
                                     list.Add(new TravelOrder
                                     {
-
                                         Id = (int)r["Id"],
-                                        OrderStatus = (int)r["OrderStatus"],
-                                        Vehicle = new Vehicle((int)r["VehicleID"]),
-                                        Driver = new Driver((int)r["UserID"]),
-                                        VehicleStartKM = (int)r["Vehicle_km_start"],
+                                        OrderStatus = ParseNullable<int>(r["OrderStatus"].ToString()),
+                                        VehicleID = ParseNullable<int>(r["VehicleID"].ToString()),
+                                        DriverID = ParseNullable<int>(r["UserID"].ToString()),
+                                        VehicleStartKM = ParseNullable<int>(r["Vehicle_km_start"].ToString()),
                                         VehicleEndKM = ParseNullable<int>(r["Vehicle_km_end"].ToString()),
                                         Distance = ParseNullable<int>(r["Distance_crossed"].ToString()),
-                                        StartingPoint = new Point((int)r["Starting_point"]),
-                                        FinnishPoint = new Point((int)r["Finish_point"]),
-                                        TotalDays = (int)r["Total_days"],
+                                        StartingCity = r["Starting_city"].ToString(),
+                                        FinishCity = r["Finish_city"].ToString(),
+                                        TotalDays = ParseNullable<int>(r["Total_days"].ToString()),
                                         TotalPrice = ParseNullable<Decimal>(r["Total_price"].ToString()),
-                                        StartingDate = DateTime.Parse(r["Created"].ToString()),
+                                        StartingDate = DateTime.Parse(r["StartingDate"].ToString()),
                                     });
                                 };
                             }
                         }
 
-                    }
-                    foreach (TravelOrder item in list)
-                    {
-                        int index = list.FindIndex(x => x.Id == item.Id);
-
-                        using (cmd2)
-                        {
-                            cmd2.CommandText = "select * from Vehicle where Id = @param1";
-                            cmd2.CommandType = CommandType.Text;
-
-                            cmd2.Parameters.Add("@param1", SqlDbType.Int).Value = item.Vehicle.Id;
-                            SqlDataReader r = cmd2.ExecuteReader();
-
-                            while (r.Read())
-                            {
-                                list[index].Vehicle = new Vehicle
-                                {
-                                    Id = (int)r["Id"],
-                                    VehicleTypeId = (int)r["VehicleTypeId"],
-                                    Plate = r["Plate"].ToString(),
-                                    Brand = r["Brand"].ToString(),
-                                    Year = DateTime.Parse(r["Year"].ToString()),
-                                    IsAvailable = (bool)r["IsAvailable"],
-                                    Milleage = (long)r["Milleage"]
-                                };
-                            }
-                        }
-                        using (cmd3)
-                        {
-                            cmd3.CommandText = "select * from Users where Id = @param1";
-                            cmd3.CommandType = CommandType.Text;
-
-                            cmd3.Parameters.Add("@param1", SqlDbType.Int).Value = item.Driver.Id;
-                            SqlDataReader r = cmd3.ExecuteReader();
-                            while (r.Read())
-                            {
-                                list[index].Driver = new Driver
-                                {
-                                    Id = (int)r["Id"],
-                                    Name = r["Name"].ToString(),
-                                    Lastname = r["Surname"].ToString(),
-                                    Mobile = r["Mobile"].ToString(),
-                                    DrivingLicence = r["Driving_License"].ToString()
-                                };
-                            }
-                        }
-                        using (cmd4)
-                        {
-                            cmd4.CommandText = "select * from Point where Id = @param1";
-                            cmd4.CommandType = CommandType.Text;
-
-                            cmd4.Parameters.Add("@param1", SqlDbType.Int).Value = item.StartingPoint.Id;
-                            Point point = (Point)cmd4.ExecuteScalar();
-                            list[index].StartingPoint = new Point
-                            {
-
-                            };
-                        }
-                        using (cmd5)
-                        {
-                            cmd5.CommandText = "select * from Point where Id = @param1";
-                            cmd5.CommandType = CommandType.Text;
-
-                            cmd5.Parameters.Add("@param1", SqlDbType.Int).Value = item.FinnishPoint.Id;
-                            Point point = (Point)cmd5.ExecuteScalar();
-                            list[index].FinnishPoint = point;
-                        }
-                        using (cmd6)
-                        {
-                            cmd6.CommandText = "select * from Status where TravelOrderId = @param1";
-                            cmd6.CommandType = CommandType.Text;
-
-                            cmd6.Parameters.Add("@param1", SqlDbType.Int).Value = item.Id;
-
-                            using (SqlDataReader r = cmd6.ExecuteReader())
-                            {
-                                if (r.HasRows)
-                                {
-                                    while (r.Read())
-                                    {
-                                        list[index].Statuses.Add(new Status
-                                        {
-                                            Code = (int)r["Code"],
-                                            Point = new Point((int)r["PointId"]),
-                                            TravelOrder = item
-                                        });
-                                    }
-                                }
-                            }
-                        }
                     }
                 }
                 trScope.Complete();
@@ -419,6 +323,8 @@ namespace PPPKProjekt.App_Code
 
             return list;
         }
+
+
         public T ParseNullable<T>(string value)
         {
             if (value == null || value.Trim() == string.Empty)
@@ -433,6 +339,120 @@ namespace PPPKProjekt.App_Code
                     return default(T);
                 }
             }
+        }
+
+        public int InsertTravelOrder(TravelOrder trOrder)
+        {
+            int result;
+            using (TransactionScope trScope = new TransactionScope())
+            {
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+                    SqlCommand cmd1 = con.CreateCommand();
+                    using (cmd1)
+                    {
+                        cmd1.CommandText = "insert into TravelOrder(OrderStatus, VehicleID, UserID, Vehicle_km_start, Starting_city, Finish_city, Total_days, StartingDate)" +
+                            " VALUES(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8)";
+                        cmd1.CommandType = CommandType.Text;
+                        cmd1.Parameters.Add("@param1", SqlDbType.VarChar, 50).Value = trOrder.OrderStatus;
+                        cmd1.Parameters.Add("@param2", SqlDbType.NVarChar).Value = trOrder.VehicleID;
+                        cmd1.Parameters.Add("@param3", SqlDbType.NVarChar).Value = trOrder.DriverID;
+                        cmd1.Parameters.Add("@param4", SqlDbType.NVarChar).Value = trOrder.VehicleStartKM;
+                        cmd1.Parameters.Add("@param5", SqlDbType.NVarChar).Value = trOrder.StartingCity;
+                        cmd1.Parameters.Add("@param6", SqlDbType.NVarChar).Value = trOrder.FinishCity;
+                        cmd1.Parameters.Add("@param7", SqlDbType.NVarChar).Value = trOrder.TotalDays;
+                        cmd1.Parameters.Add("@param8", SqlDbType.DateTime).Value = trOrder.StartingDate;
+
+                        try
+                        {
+                            result = cmd1.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            throw ex;
+                        }
+                    }
+                }
+                trScope.Complete();
+            }
+            if (result == 0) return 400;
+
+            return 200;
+        }
+
+        public int DeleteTravelOrder(int id)
+        {
+            int result;
+            using (TransactionScope trScope = new TransactionScope())
+            {
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = con.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = @"delete from TravelOrder where Id = @param1";
+                        cmd.Parameters.Add("@param1", SqlDbType.Int).Value = id;
+                        try
+                        {
+
+                            result = cmd.ExecuteNonQuery();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            throw ex;
+                        }
+                    }
+                }
+                trScope.Complete();
+            }
+            if (result == 0) return 400;
+
+            return 200;
+        }
+
+        public int UpdateTravelOrder(TravelOrder trOrder)
+        {
+            int r;
+            using (TransactionScope trScope = new TransactionScope())
+            {
+
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+                    using (SqlCommand cmd1 = con.CreateCommand())
+                    {
+                        cmd1.CommandText = "update TravelOrder set OrderStatus = @param1, VehicleID = @param2, UserID = @param3," +
+                        " Vehicle_km_start = @param4, Starting_city = @param5, Finish_city = @param6, Total_days = @param7, StartingDate = @param8 where Id = @param9";
+
+                        cmd1.CommandType = CommandType.Text;
+                        cmd1.Parameters.Add("@param1", SqlDbType.VarChar, 50).Value = trOrder.OrderStatus;
+                        cmd1.Parameters.Add("@param2", SqlDbType.NVarChar).Value = trOrder.VehicleID;
+                        cmd1.Parameters.Add("@param3", SqlDbType.NVarChar).Value = trOrder.DriverID;
+                        cmd1.Parameters.Add("@param4", SqlDbType.NVarChar).Value = trOrder.VehicleStartKM;
+                        cmd1.Parameters.Add("@param5", SqlDbType.NVarChar).Value = trOrder.StartingCity;
+                        cmd1.Parameters.Add("@param6", SqlDbType.NVarChar).Value = trOrder.FinishCity;
+                        cmd1.Parameters.Add("@param7", SqlDbType.NVarChar).Value = trOrder.TotalDays;
+                        cmd1.Parameters.Add("@param8", SqlDbType.DateTime).Value = trOrder.StartingDate;
+                        cmd1.Parameters.Add("@param9", SqlDbType.Int).Value = trOrder.Id;
+                        try
+                        {
+                            r = cmd1.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            throw ex;
+                        }
+                    }
+                }
+
+                trScope.Complete();
+            }
+            if (r == 0) return 400;
+
+            return 200;
         }
     }
 

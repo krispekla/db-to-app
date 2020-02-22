@@ -42,53 +42,71 @@ CREATE TABLE Vehicle
 )
 GO
 
-CREATE TABLE Point
-(
-	Id int not null identity primary key,
-	City nvarchar(50) not null,
-	Street nvarchar(50) not null,
-	House_number int not null,
-)
-GO
 
 CREATE TABLE TravelOrder
 (
 	Id int not null primary key identity,
-	OrderStatus int not null default 1,
+	OrderStatus int default 1,
 	VehicleID int foreign key references Vehicle(Id),
-	UserID int not null foreign key references Users(Id),
-	Vehicle_km_start int not null,
-	Vehicle_km_end int ,
+	UserID int foreign key references Users(Id),
+	Vehicle_km_start bigint ,
+	Vehicle_km_end bigint ,
 	Distance_crossed int,
-	Starting_point int foreign key references Point(Id),
-	Finish_point int foreign key references Point(Id),
+	Starting_city nvarchar(50),
+	Finish_city nvarchar(50),
 	Total_price money,
 	Total_days int,
 	Created datetime default GETDATE(),
 	Modified datetime default GETDATE(),
-	StartingDate datetime not null
+	StartingDate datetime
 )
 
 GO
-CREATE TABLE StatusType
+
+CREATE TABLE Route
 (
-	Id int not null primary key,
-	Name nvarchar(50) not null
+	Id int not null primary key identity,
+	TravelOrderID int foreign key references TravelOrder(Id),
+	DateStart datetime,
+	DateEnd datetime,
+    StartCoordinate nvarchar(50),
+	EndCoordinate nvarchar(50),
+	DistanceCrossed int,
+	AverageSpeed int,
+	FuelConsumption int
 )
 
-GO
-
-CREATE TABLE Status
+CREATE TABLE Service
 (
-	Id int not null identity primary key,
-	Code int not null references StatusType(Id),
-	Created datetime default GETDATE(),
-	Modified datetime default GETDATE(),
-	PointId int foreign key references Point(Id),
-	TravelOrderId int foreign key references TravelOrder(Id),
-	Price money
+	Id int not null primary key identity,
+	VehicleID int not null foreign key references Vehicle(Id),
+	Date datetime not null
 )
-GO
+
+CREATE TABLE ServiceItem
+(
+	Id int not null primary key identity,
+	ServiceID int not null foreign key references Service(Id),
+	ServiceName nvarchar(50) not null,
+	Price money not null
+)
+
+CREATE TABLE Bills
+(
+	Id int not null primary key identity,
+	TravelOrder int not null foreign key references TravelOrder(Id),
+	Price money not null
+)
+
+CREATE TABLE VehicleFuel
+(
+	Id int not null primary key identity,
+	UserID int not null foreign key references Users(Id),
+	Date datetime not null ,
+	Litres int not null,
+	FuelPrice money not null
+)
+
 
 
 ----------------------
@@ -105,37 +123,58 @@ INSERT INTO  Users(Name, Surname, Mobile, Driving_License) VALUES ('Pero', 'Peri
 											  					  ('Ivan', 'Ivanovic', '09432134567', '7712834'),
 																  ('Arsen', 'Dedic', '0923334567', '3426562')
 
+GO
 INSERT INTO VehicleType(Name) VALUES('Auto'), ('Motor'), ('Zrakoplov'), ('Autobus')
-INSERT INTO Vehicle(VehicleTypeId, Plate, Brand, Production_Year, Vehicle_Status, Milleage) VALUES(1, 'ZG3387HN', 'Tesla', '2010-01-01', 1, 32420),
-																					(1, 'ZG227AA', 'Tesla', '2010-01-01', 1, 72000),
-																					(1, 'ZG0000BB', 'Tesla', '2010-01-01', 1, 82000)
-
-INSERT INTO StatusType(Id,Name) VALUES(1000 ,'Definiran nalog'),(2000, 'Pocetak puta'),(3000, 'Kraj puta'),
-										(4000, 'Koordinata'),(5000, 'Gorivo'), (6000, 'Naplatna kuca'), (7000, 'Hotel'),
-										(8000, 'Avionska karta')
-
-
-
-
-INSERT INTO Point(City, Street, House_number) VALUES('Zagreb', 'Ilica', 12), ('Varaždin', 'Jalkovečka', 15),
-													('Osijek', 'Osjecka', 2),('Zagreb', 'Zvnomirova', 5),('Split', 'Riva', 3), 
-													('Opatija', 'Opatijska', 14)
-
-
-
-INSERT INTO TravelOrder(VehicleID, UserID, Vehicle_km_start, Total_days, Starting_point, Finish_point) VALUES(1, 1, 32420, 3, 1, 5),
-																											(2, 2, 72000, 2, 3, 1),
-																											(3, 3, 82000, 1, 4, 2)
-
-
-INSERT INTO Status(Code, TravelOrderId, PointId, Price) VALUES (1000, 1, 1, 2000),
-																(1000, 2, 3, 3500),
-																(1000, 2, 3, 1500)
+GO
+INSERT INTO Vehicle(VehicleTypeId, Plate, Brand, Production_Year, Vehicle_Status, Milleage) VALUES(1, 'ZG3387HN', 'Tesla', '2011-01-11', 1, 32420),
+																					(1, 'ZG227AA', 'Ford', '2012-05-03', 1, 72000),
+																					(1, 'ZG0000BB', 'Bmw', '2013-03-08', 1, 82000)
 
 GO
+INSERT INTO TravelOrder(OrderStatus, VehicleID, UserID, Vehicle_km_start, Total_days, Starting_city, Finish_city, StartingDate) VALUES(1, 1, 1, 32420, 3, 'Zagreb', 'Osijek', '2013-05-11'),
+																											(1, 2, 2, 72000, 2, 'Zagreb', 'Graz', '2010-08-10'),
+																											(2, 3, 3, 82000, 1, 'Velika Gorica', 'Ljubljana', '2004-11-01'),
+																											(2, 3, 3, 82000, 1, 'Split', 'Požega', '2010-08-12'),
+																											(3, 3, 3, 82000, 1, 'Dubrovnik', 'Osijek', '2010-04-11'),
+																											(3, 3, 3, 82000, 1,'Pula','Varaždin', '2010-02-02')
+
+GO
+INSERT INTO Route(TravelOrderID, DateStart, DateEnd, StartCoordinate, EndCoordinate, DistanceCrossed, AverageSpeed, FuelConsumption) VALUES(1, '2010-01-07', '2010-01-12', '45.747,16.056', '46.123,15.3697', 120, 80, 8),
+											(1, '2010-01-07', '2010-01-12', '45.9696,16.594567', '46.123,15.3697', 312, 80, 8),
+											(2, '2010-03-07', '2010-04-08', '45.7467,16.0756', '46.123,15.9679', 280, 120, 6),
+											(3, '2010-02-07', '2010-06-09', '45.3644,16.76', '46.089,15.2468', 620, 150, 5),
+											(3, '2010-01-03', '2010-08-11', '45.053,16.950', '46.987,15.789', 400, 75, 10)
+
+GO
+INSERT INTO Service(VehicleID, Date) VALUES(1, '2010-03-08'),
+											(1, '2012-06-04'),
+											(2, '2011-07-05'),
+											(3, '2016-08-02')
 ----------------------
 GO
 
+INSERT INTO ServiceItem(ServiceID, ServiceName, Price) VALUES(1, 'Izmjena ulja', 330),
+												(1, 'Promjena diskova', 2050),
+												(1, 'Promjena tekučine', 850),
+												(2, 'Promjena pumpe za gorivo',3450),
+												(2, 'Promjena ulja', 350),
+												(3, 'Promjena motora', 10850),
+												(3, 'Promjena ulja', 350),
+												(4, 'Promjena ulja', 350),
+												(4, 'Promjena klime', 1650)
+GO
+INSERT INTO VehicleFuel(UserID, Date, Litres, FuelPrice) VALUES(1, '2010-08-11', 24, 10),
+										(1, '2013-08-11', 34, 9),
+										(2, '2013-08-11', 14, 11),
+										(2, '2012-08-11', 22, 9),
+										(3, '2015-08-11', 21, 8)
+GO
+INSERT INTO Bills(TravelOrder, Price) VALUES(1, 440),
+							(1, 650),
+							(2, 850),
+							(3, 430)
+
+GO
 USE PPPKProjekt
 GO
 

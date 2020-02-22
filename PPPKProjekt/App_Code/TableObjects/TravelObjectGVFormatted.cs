@@ -3,21 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace PPPKProjekt.App_Code
+namespace PPPKProjekt.App_Code.TableObjects
 {
-    public enum OrderStatus
-    {
-        Open = 1,
-        Closed = 2,
-        Future = 3
-    }
-
-    public class TravelOrder
+    public class TravelObjectGVFormatted
     {
         public int Id { get; set; }
-        public int OrderStatus { get; set; }
-        public int VehicleID { get; set; }
-        public int DriverID { get; set; }
+        public String Driver { get; set; }
+        public String Vehicle { get; set; }
+        public OrderStatus OrderStatus { get; set; }
         public long VehicleStartKM { get; set; }
         public long? VehicleEndKM { get; set; }
         public int? Distance { get; set; }
@@ -28,4 +21,3 @@ namespace PPPKProjekt.App_Code
         public DateTime StartingDate { get; set; }
     }
 }
-

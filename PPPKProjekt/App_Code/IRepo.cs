@@ -17,5 +17,8 @@ namespace PPPKProjekt.App_Code
         int UpdateVehicle(Vehicle vehicle);
         int DeleteVehicle(int id);
         List<TravelOrder> GetAllTravelOrder();
+        int InsertTravelOrder(TravelOrder trOrder);
+        int DeleteTravelOrder(int id);
+        int UpdateTravelOrder(TravelOrder trOrder);
     }
 }

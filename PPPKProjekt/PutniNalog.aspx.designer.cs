@@ -33,6 +33,87 @@ namespace PPPKProjekt
         protected global::System.Web.UI.WebControls.GridView gvTransportOrder;
 
         /// <summary>
+        /// ddlSelectedOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSelectedOrder;
+
+        /// <summary>
+        /// ddlOrderStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlOrderStatus;
+
+        /// <summary>
+        /// ddlVehicle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlVehicle;
+
+        /// <summary>
+        /// btnOnlyAvailable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOnlyAvailable;
+
+        /// <summary>
+        /// ddlDriver control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDriver;
+
+        /// <summary>
+        /// lbStartCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lbStartCity;
+
+        /// <summary>
+        /// lbFinishCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lbFinishCity;
+
+        /// <summary>
+        /// lbTotalDays control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl lbTotalDays;
+
+        /// <summary>
+        /// tbStartingDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbStartingDate;
+
+        /// <summary>
         /// btnClear control.
         /// </summary>
         /// <remarks>
@@ -60,13 +141,13 @@ namespace PPPKProjekt
         protected global::System.Web.UI.WebControls.Button btnEditToggle;
 
         /// <summary>
-        /// btnAddVehicle control.
+        /// btnAddOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddVehicle;
+        protected global::System.Web.UI.WebControls.Button btnAddOrder;
 
         /// <summary>
         /// btnSave control.

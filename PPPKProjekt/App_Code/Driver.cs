@@ -22,5 +22,10 @@ namespace PPPKProjekt.App_Code
         {
             this.Id = id;
         }
+
+        public override string ToString()
+        {
+            return Name + " " + Lastname;
+        }
     }
 }

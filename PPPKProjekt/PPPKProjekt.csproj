@@ -261,16 +261,19 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\Bills.cs" />
     <Compile Include="App_Code\Driver.cs" />
     <Compile Include="App_Code\IRepo.cs" />
-    <Compile Include="App_Code\Point.cs" />
     <Compile Include="App_Code\Repo.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="App_Code\Route.cs" />
+    <Compile Include="App_Code\Service.cs" />
+    <Compile Include="App_Code\ServiceItem.cs" />
+    <Compile Include="App_Code\TableObjects\TravelObjectGVFormatted.cs" />
     <Compile Include="App_Code\TravelOrder.cs" />
-    <Compile Include="App_Code\Status.cs" />
-    <Content Include="App_Code\StatusType.cs" />
     <Compile Include="App_Code\Vehicle.cs" />
+    <Compile Include="App_Code\VehicleFuel.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Default.aspx.cs">
