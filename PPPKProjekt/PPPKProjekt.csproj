@@ -120,6 +120,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="i3XML.aspx" />
     <Content Include="PPPKScript.sql" />
     <Content Include="PutniNalog.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -285,6 +286,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="i3XML.aspx.cs">
+      <DependentUpon>i3XML.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="i3XML.aspx.designer.cs">
+      <DependentUpon>i3XML.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PutniNalog.aspx.cs">

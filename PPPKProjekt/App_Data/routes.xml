@@ -1,0 +1,187 @@
+<?xml version="1.0" standalone="yes"?>
+<TravelOrderRoutes>
+  <xs:schema id="TravelOrderRoutes" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="TravelOrderRoutes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="TravelOrder">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Id" type="xs:int" minOccurs="0" />
+                <xs:element name="OrderStatus" type="xs:int" minOccurs="0" />
+                <xs:element name="VehicleID" type="xs:int" minOccurs="0" />
+                <xs:element name="UserID" type="xs:int" minOccurs="0" />
+                <xs:element name="Vehicle_km_start" type="xs:long" minOccurs="0" />
+                <xs:element name="Vehicle_km_end" type="xs:long" minOccurs="0" />
+                <xs:element name="Distance_crossed" type="xs:int" minOccurs="0" />
+                <xs:element name="Starting_city" type="xs:string" minOccurs="0" />
+                <xs:element name="Finish_city" type="xs:string" minOccurs="0" />
+                <xs:element name="Total_price" type="xs:decimal" minOccurs="0" />
+                <xs:element name="Total_days" type="xs:int" minOccurs="0" />
+                <xs:element name="Created" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Modified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="StartingDate" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Route" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="Id" type="xs:int" minOccurs="0" />
+                      <xs:element name="TravelOrderID" type="xs:int" minOccurs="0" />
+                      <xs:element name="DateStart" type="xs:dateTime" minOccurs="0" />
+                      <xs:element name="DateEnd" type="xs:dateTime" minOccurs="0" />
+                      <xs:element name="StartCoordinate" type="xs:string" minOccurs="0" />
+                      <xs:element name="EndCoordinate" type="xs:string" minOccurs="0" />
+                      <xs:element name="DistanceCrossed" type="xs:int" minOccurs="0" />
+                      <xs:element name="AverageSpeed" type="xs:int" minOccurs="0" />
+                      <xs:element name="FuelConsumption" type="xs:int" minOccurs="0" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1">
+        <xs:selector xpath=".//TravelOrder" />
+        <xs:field xpath="Id" />
+      </xs:unique>
+      <xs:keyref name="relacija" refer="Constraint1" msdata:IsNested="true">
+        <xs:selector xpath=".//Route" />
+        <xs:field xpath="TravelOrderID" />
+      </xs:keyref>
+    </xs:element>
+  </xs:schema>
+  <TravelOrder>
+    <Id>1</Id>
+    <OrderStatus>1</OrderStatus>
+    <VehicleID>1</VehicleID>
+    <UserID>1</UserID>
+    <Vehicle_km_start>32420</Vehicle_km_start>
+    <Starting_city>Zagreb</Starting_city>
+    <Finish_city>Osijek</Finish_city>
+    <Total_days>3</Total_days>
+    <Created>2020-02-22T14:46:56.64+01:00</Created>
+    <Modified>2020-02-22T14:46:56.64+01:00</Modified>
+    <StartingDate>2013-05-11T00:00:00+02:00</StartingDate>
+    <Route>
+      <Id>1</Id>
+      <TravelOrderID>1</TravelOrderID>
+      <DateStart>2010-01-07T00:00:00+01:00</DateStart>
+      <DateEnd>2010-01-12T00:00:00+01:00</DateEnd>
+      <StartCoordinate>45.747,16.056</StartCoordinate>
+      <EndCoordinate>46.123,15.3697</EndCoordinate>
+      <DistanceCrossed>120</DistanceCrossed>
+      <AverageSpeed>80</AverageSpeed>
+      <FuelConsumption>8</FuelConsumption>
+    </Route>
+    <Route>
+      <Id>2</Id>
+      <TravelOrderID>1</TravelOrderID>
+      <DateStart>2010-01-07T00:00:00+01:00</DateStart>
+      <DateEnd>2010-01-12T00:00:00+01:00</DateEnd>
+      <StartCoordinate>45.9696,16.594567</StartCoordinate>
+      <EndCoordinate>46.123,15.3697</EndCoordinate>
+      <DistanceCrossed>312</DistanceCrossed>
+      <AverageSpeed>80</AverageSpeed>
+      <FuelConsumption>8</FuelConsumption>
+    </Route>
+  </TravelOrder>
+  <TravelOrder>
+    <Id>2</Id>
+    <OrderStatus>1</OrderStatus>
+    <VehicleID>2</VehicleID>
+    <UserID>2</UserID>
+    <Vehicle_km_start>72000</Vehicle_km_start>
+    <Starting_city>Zagreb</Starting_city>
+    <Finish_city>Graz</Finish_city>
+    <Total_days>2</Total_days>
+    <Created>2020-02-22T14:46:56.64+01:00</Created>
+    <Modified>2020-02-22T14:46:56.64+01:00</Modified>
+    <StartingDate>2010-08-10T00:00:00+02:00</StartingDate>
+    <Route>
+      <Id>3</Id>
+      <TravelOrderID>2</TravelOrderID>
+      <DateStart>2010-03-07T00:00:00+01:00</DateStart>
+      <DateEnd>2010-04-08T00:00:00+02:00</DateEnd>
+      <StartCoordinate>45.7467,16.0756</StartCoordinate>
+      <EndCoordinate>46.123,15.9679</EndCoordinate>
+      <DistanceCrossed>280</DistanceCrossed>
+      <AverageSpeed>120</AverageSpeed>
+      <FuelConsumption>6</FuelConsumption>
+    </Route>
+  </TravelOrder>
+  <TravelOrder>
+    <Id>3</Id>
+    <OrderStatus>2</OrderStatus>
+    <VehicleID>3</VehicleID>
+    <UserID>3</UserID>
+    <Vehicle_km_start>82000</Vehicle_km_start>
+    <Starting_city>Velika Gorica</Starting_city>
+    <Finish_city>Ljubljana</Finish_city>
+    <Total_days>1</Total_days>
+    <Created>2020-02-22T14:46:56.64+01:00</Created>
+    <Modified>2020-02-22T14:46:56.64+01:00</Modified>
+    <StartingDate>2004-11-01T00:00:00+01:00</StartingDate>
+    <Route>
+      <Id>4</Id>
+      <TravelOrderID>3</TravelOrderID>
+      <DateStart>2010-02-07T00:00:00+01:00</DateStart>
+      <DateEnd>2010-06-09T00:00:00+02:00</DateEnd>
+      <StartCoordinate>45.3644,16.76</StartCoordinate>
+      <EndCoordinate>46.089,15.2468</EndCoordinate>
+      <DistanceCrossed>620</DistanceCrossed>
+      <AverageSpeed>150</AverageSpeed>
+      <FuelConsumption>5</FuelConsumption>
+    </Route>
+    <Route>
+      <Id>5</Id>
+      <TravelOrderID>3</TravelOrderID>
+      <DateStart>2010-01-03T00:00:00+01:00</DateStart>
+      <DateEnd>2010-08-11T00:00:00+02:00</DateEnd>
+      <StartCoordinate>45.053,16.950</StartCoordinate>
+      <EndCoordinate>46.987,15.789</EndCoordinate>
+      <DistanceCrossed>400</DistanceCrossed>
+      <AverageSpeed>75</AverageSpeed>
+      <FuelConsumption>10</FuelConsumption>
+    </Route>
+  </TravelOrder>
+  <TravelOrder>
+    <Id>4</Id>
+    <OrderStatus>2</OrderStatus>
+    <VehicleID>3</VehicleID>
+    <UserID>3</UserID>
+    <Vehicle_km_start>82000</Vehicle_km_start>
+    <Starting_city>Split</Starting_city>
+    <Finish_city>Požega</Finish_city>
+    <Total_days>1</Total_days>
+    <Created>2020-02-22T14:46:56.64+01:00</Created>
+    <Modified>2020-02-22T14:46:56.64+01:00</Modified>
+    <StartingDate>2010-08-12T00:00:00+02:00</StartingDate>
+  </TravelOrder>
+  <TravelOrder>
+    <Id>5</Id>
+    <OrderStatus>3</OrderStatus>
+    <VehicleID>3</VehicleID>
+    <UserID>3</UserID>
+    <Vehicle_km_start>82000</Vehicle_km_start>
+    <Starting_city>Dubrovnik</Starting_city>
+    <Finish_city>Osijek</Finish_city>
+    <Total_days>1</Total_days>
+    <Created>2020-02-22T14:46:56.64+01:00</Created>
+    <Modified>2020-02-22T14:46:56.64+01:00</Modified>
+    <StartingDate>2010-04-11T00:00:00+02:00</StartingDate>
+  </TravelOrder>
+  <TravelOrder>
+    <Id>6</Id>
+    <OrderStatus>3</OrderStatus>
+    <VehicleID>3</VehicleID>
+    <UserID>3</UserID>
+    <Vehicle_km_start>82000</Vehicle_km_start>
+    <Starting_city>Pula</Starting_city>
+    <Finish_city>Varaždin</Finish_city>
+    <Total_days>1</Total_days>
+    <Created>2020-02-22T14:46:56.64+01:00</Created>
+    <Modified>2020-02-22T14:46:56.64+01:00</Modified>
+    <StartingDate>2010-02-02T00:00:00+01:00</StartingDate>
+  </TravelOrder>
+</TravelOrderRoutes>
