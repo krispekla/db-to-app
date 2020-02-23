@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<backup>
+  <Users>
+    <Id>1</Id>
+    <Name>Pero</Name>
+    <Surname>Peric</Surname>
+    <Mobile>0991234567</Mobile>
+    <Created>2/23/2020 2:52:09 PM</Created>
+    <Modified>2/23/2020 2:52:09 PM</Modified>
+    <Driving_License>1222867</Driving_License>
+  </Users>
+  <Users>
+    <Id>2</Id>
+    <Name>Ivan</Name>
+    <Surname>Ivanovic</Surname>
+    <Mobile>09432134567</Mobile>
+    <Created>2/23/2020 2:52:09 PM</Created>
+    <Modified>2/23/2020 2:52:09 PM</Modified>
+    <Driving_License>7712834</Driving_License>
+  </Users>
+  <Users>
+    <Id>3</Id>
+    <Name>Arsen</Name>
+    <Surname>Dedic</Surname>
+    <Mobile>0923334567</Mobile>
+    <Created>2/23/2020 2:52:09 PM</Created>
+    <Modified>2/23/2020 2:52:09 PM</Modified>
+    <Driving_License>3426562</Driving_License>
+  </Users>
+  <VehicleType>
+    <Id>1</Id>
+    <Name>Auto</Name>
+  </VehicleType>
+  <VehicleType>
+    <Id>2</Id>
+    <Name>Motor</Name>
+  </VehicleType>
+  <VehicleType>
+    <Id>3</Id>
+    <Name>Zrakoplov</Name>
+  </VehicleType>
+  <VehicleType>
+    <Id>4</Id>
+    <Name>Autobus</Name>
+  </VehicleType>
+  <Vehicle>
+    <Id>1</Id>
+    <VehicleTypeId>1</VehicleTypeId>
+    <Plate>ZG3387HN</Plate>
+    <Brand>Tesla</Brand>
+    <Production_Year>1/11/2011 12:00:00 AM</Production_Year>
+    <Vehicle_Status>True</Vehicle_Status>
+    <Milleage>32420</Milleage>
+    <Created>2/23/2020 2:52:12 PM</Created>
+    <Modified>2/23/2020 2:52:12 PM</Modified>
+  </Vehicle>
+  <Vehicle>
+    <Id>2</Id>
+    <VehicleTypeId>1</VehicleTypeId>
+    <Plate>ZG227AA</Plate>
+    <Brand>Ford</Brand>
+    <Production_Year>5/3/2012 12:00:00 AM</Production_Year>
+    <Vehicle_Status>True</Vehicle_Status>
+    <Milleage>72000</Milleage>
+    <Created>2/23/2020 2:52:12 PM</Created>
+    <Modified>2/23/2020 2:52:12 PM</Modified>
+  </Vehicle>
+  <Vehicle>
+    <Id>3</Id>
+    <VehicleTypeId>1</VehicleTypeId>
+    <Plate>ZG0000BB</Plate>
+    <Brand>Bmw</Brand>
+    <Production_Year>3/8/2013 12:00:00 AM</Production_Year>
+    <Vehicle_Status>True</Vehicle_Status>
+    <Milleage>82000</Milleage>
+    <Created>2/23/2020 2:52:12 PM</Created>
+    <Modified>2/23/2020 2:52:12 PM</Modified>
+  </Vehicle>
+  <TravelOrder>
+    <Id>1</Id>
+    <OrderStatus>1</OrderStatus>
+    <VehicleID>1</VehicleID>
+    <UserID>1</UserID>
+    <Vehicle_km_start>32420</Vehicle_km_start>
+    <Vehicle_km_end></Vehicle_km_end>
+    <Distance_crossed></Distance_crossed>
+    <Starting_city>Zagreb</Starting_city>
+    <Finish_city>Osijek</Finish_city>
+    <Total_price></Total_price>
+    <Total_days>3</Total_days>
+    <Created>2/23/2020 2:52:14 PM</Created>
+    <Modified>2/23/2020 2:52:14 PM</Modified>
+    <StartingDate>5/11/2013 12:00:00 AM</StartingDate>
+  </TravelOrder>
+  <TravelOrder>
+    <Id>2</Id>
+    <OrderStatus>1</OrderStatus>
+    <VehicleID>2</VehicleID>
+    <UserID>2</UserID>
+    <Vehicle_km_start>72000</Vehicle_km_start>
+    <Vehicle_km_end></Vehicle_km_end>
+    <Distance_crossed></Distance_crossed>
+    <Starting_city>Zagreb</Starting_city>
+    <Finish_city>Graz</Finish_city>
+    <Total_price></Total_price>
+    <Total_days>2</Total_days>
+    <Created>2/23/2020 2:52:14 PM</Created>
+    <Modified>2/23/2020 2:52:14 PM</Modified>
+    <StartingDate>8/10/2010 12:00:00 AM</StartingDate>
+  </TravelOrder>
+  <TravelOrder>
+    <Id>3</Id>
+    <OrderStatus>2</OrderStatus>
+    <VehicleID>3</VehicleID>
+    <UserID>3</UserID>
+    <Vehicle_km_start>82000</Vehicle_km_start>
+    <Vehicle_km_end></Vehicle_km_end>
+    <Distance_crossed></Distance_crossed>
+    <Starting_city>Velika Gorica</Starting_city>
+    <Finish_city>Ljubljana</Finish_city>
+    <Total_price></Total_price>
+    <Total_days>1</Total_days>
+    <Created>2/23/2020 2:52:14 PM</Created>
+    <Modified>2/23/2020 2:52:14 PM</Modified>
+    <StartingDate>11/1/2004 12:00:00 AM</StartingDate>
+  </TravelOrder>
+  <TravelOrder>
+    <Id>4</Id>
+    <OrderStatus>2</OrderStatus>
+    <VehicleID>3</VehicleID>
+    <UserID>3</UserID>
+    <Vehicle_km_start>82000</Vehicle_km_start>
+    <Vehicle_km_end></Vehicle_km_end>
+    <Distance_crossed></Distance_crossed>
+    <Starting_city>Split</Starting_city>
+    <Finish_city>Požega</Finish_city>
+    <Total_price></Total_price>
+    <Total_days>1</Total_days>
+    <Created>2/23/2020 2:52:14 PM</Created>
+    <Modified>2/23/2020 2:52:14 PM</Modified>
+    <StartingDate>8/12/2010 12:00:00 AM</StartingDate>
+  </TravelOrder>
+  <TravelOrder>
+    <Id>5</Id>
+    <OrderStatus>3</OrderStatus>
+    <VehicleID>3</VehicleID>
+    <UserID>3</UserID>
+    <Vehicle_km_start>82000</Vehicle_km_start>
+    <Vehicle_km_end></Vehicle_km_end>
+    <Distance_crossed></Distance_crossed>
+    <Starting_city>Dubrovnik</Starting_city>
+    <Finish_city>Osijek</Finish_city>
+    <Total_price></Total_price>
+    <Total_days>1</Total_days>
+    <Created>2/23/2020 2:52:14 PM</Created>
+    <Modified>2/23/2020 2:52:14 PM</Modified>
+    <StartingDate>4/11/2010 12:00:00 AM</StartingDate>
+  </TravelOrder>
+  <TravelOrder>
+    <Id>6</Id>
+    <OrderStatus>3</OrderStatus>
+    <VehicleID>3</VehicleID>
+    <UserID>3</UserID>
+    <Vehicle_km_start>82000</Vehicle_km_start>
+    <Vehicle_km_end></Vehicle_km_end>
+    <Distance_crossed></Distance_crossed>
+    <Starting_city>Pula</Starting_city>
+    <Finish_city>Varaždin</Finish_city>
+    <Total_price></Total_price>
+    <Total_days>1</Total_days>
+    <Created>2/23/2020 2:52:14 PM</Created>
+    <Modified>2/23/2020 2:52:14 PM</Modified>
+    <StartingDate>2/2/2010 12:00:00 AM</StartingDate>
+  </TravelOrder>
+  <Route>
+    <Id>1</Id>
+    <TravelOrderID>1</TravelOrderID>
+    <DateStart>1/7/2010 12:00:00 AM</DateStart>
+    <DateEnd>1/12/2010 12:00:00 AM</DateEnd>
+    <StartCoordinate>45.747,16.056</StartCoordinate>
+    <EndCoordinate>46.123,15.3697</EndCoordinate>
+    <DistanceCrossed>120</DistanceCrossed>
+    <AverageSpeed>80</AverageSpeed>
+    <FuelConsumption>8</FuelConsumption>
+  </Route>
+  <Route>
+    <Id>2</Id>
+    <TravelOrderID>1</TravelOrderID>
+    <DateStart>1/7/2010 12:00:00 AM</DateStart>
+    <DateEnd>1/12/2010 12:00:00 AM</DateEnd>
+    <StartCoordinate>45.9696,16.594567</StartCoordinate>
+    <EndCoordinate>46.123,15.3697</EndCoordinate>
+    <DistanceCrossed>312</DistanceCrossed>
+    <AverageSpeed>80</AverageSpeed>
+    <FuelConsumption>8</FuelConsumption>
+  </Route>
+  <Route>
+    <Id>3</Id>
+    <TravelOrderID>2</TravelOrderID>
+    <DateStart>3/7/2010 12:00:00 AM</DateStart>
+    <DateEnd>4/8/2010 12:00:00 AM</DateEnd>
+    <StartCoordinate>45.7467,16.0756</StartCoordinate>
+    <EndCoordinate>46.123,15.9679</EndCoordinate>
+    <DistanceCrossed>280</DistanceCrossed>
+    <AverageSpeed>120</AverageSpeed>
+    <FuelConsumption>6</FuelConsumption>
+  </Route>
+  <Route>
+    <Id>4</Id>
+    <TravelOrderID>3</TravelOrderID>
+    <DateStart>2/7/2010 12:00:00 AM</DateStart>
+    <DateEnd>6/9/2010 12:00:00 AM</DateEnd>
+    <StartCoordinate>45.3644,16.76</StartCoordinate>
+    <EndCoordinate>46.089,15.2468</EndCoordinate>
+    <DistanceCrossed>620</DistanceCrossed>
+    <AverageSpeed>150</AverageSpeed>
+    <FuelConsumption>5</FuelConsumption>
+  </Route>
+  <Route>
+    <Id>5</Id>
+    <TravelOrderID>3</TravelOrderID>
+    <DateStart>1/3/2010 12:00:00 AM</DateStart>
+    <DateEnd>8/11/2010 12:00:00 AM</DateEnd>
+    <StartCoordinate>45.053,16.950</StartCoordinate>
+    <EndCoordinate>46.987,15.789</EndCoordinate>
+    <DistanceCrossed>400</DistanceCrossed>
+    <AverageSpeed>75</AverageSpeed>
+    <FuelConsumption>10</FuelConsumption>
+  </Route>
+  <VehicleFuel>
+    <Id>1</Id>
+    <UserID>1</UserID>
+    <Date>8/11/2010 12:00:00 AM</Date>
+    <Litres>24</Litres>
+    <FuelPrice>10.0000</FuelPrice>
+  </VehicleFuel>
+  <VehicleFuel>
+    <Id>2</Id>
+    <UserID>1</UserID>
+    <Date>8/11/2013 12:00:00 AM</Date>
+    <Litres>34</Litres>
+    <FuelPrice>9.0000</FuelPrice>
+  </VehicleFuel>
+  <VehicleFuel>
+    <Id>3</Id>
+    <UserID>2</UserID>
+    <Date>8/11/2013 12:00:00 AM</Date>
+    <Litres>14</Litres>
+    <FuelPrice>11.0000</FuelPrice>
+  </VehicleFuel>
+  <VehicleFuel>
+    <Id>4</Id>
+    <UserID>2</UserID>
+    <Date>8/11/2012 12:00:00 AM</Date>
+    <Litres>22</Litres>
+    <FuelPrice>9.0000</FuelPrice>
+  </VehicleFuel>
+  <VehicleFuel>
+    <Id>5</Id>
+    <UserID>3</UserID>
+    <Date>8/11/2015 12:00:00 AM</Date>
+    <Litres>21</Litres>
+    <FuelPrice>8.0000</FuelPrice>
+  </VehicleFuel>
+  <Service>
+    <Id>1</Id>
+    <VehicleID>1</VehicleID>
+    <Date>3/8/2010 12:00:00 AM</Date>
+  </Service>
+  <Service>
+    <Id>2</Id>
+    <VehicleID>1</VehicleID>
+    <Date>6/4/2012 12:00:00 AM</Date>
+  </Service>
+  <Service>
+    <Id>3</Id>
+    <VehicleID>2</VehicleID>
+    <Date>7/5/2011 12:00:00 AM</Date>
+  </Service>
+  <Service>
+    <Id>4</Id>
+    <VehicleID>3</VehicleID>
+    <Date>8/2/2016 12:00:00 AM</Date>
+  </Service>
+  <ServiceItem>
+    <Id>1</Id>
+    <ServiceID>1</ServiceID>
+    <ServiceName>Izmjena ulja</ServiceName>
+    <Price>330.0000</Price>
+  </ServiceItem>
+  <ServiceItem>
+    <Id>2</Id>
+    <ServiceID>1</ServiceID>
+    <ServiceName>Promjena diskova</ServiceName>
+    <Price>2050.0000</Price>
+  </ServiceItem>
+  <ServiceItem>
+    <Id>3</Id>
+    <ServiceID>1</ServiceID>
+    <ServiceName>Promjena tekučine</ServiceName>
+    <Price>850.0000</Price>
+  </ServiceItem>
+  <ServiceItem>
+    <Id>4</Id>
+    <ServiceID>2</ServiceID>
+    <ServiceName>Promjena pumpe za gorivo</ServiceName>
+    <Price>3450.0000</Price>
+  </ServiceItem>
+  <ServiceItem>
+    <Id>5</Id>
+    <ServiceID>2</ServiceID>
+    <ServiceName>Promjena ulja</ServiceName>
+    <Price>350.0000</Price>
+  </ServiceItem>
+  <ServiceItem>
+    <Id>6</Id>
+    <ServiceID>3</ServiceID>
+    <ServiceName>Promjena motora</ServiceName>
+    <Price>10850.0000</Price>
+  </ServiceItem>
+  <ServiceItem>
+    <Id>7</Id>
+    <ServiceID>3</ServiceID>
+    <ServiceName>Promjena ulja</ServiceName>
+    <Price>350.0000</Price>
+  </ServiceItem>
+  <ServiceItem>
+    <Id>8</Id>
+    <ServiceID>4</ServiceID>
+    <ServiceName>Promjena ulja</ServiceName>
+    <Price>350.0000</Price>
+  </ServiceItem>
+  <ServiceItem>
+    <Id>9</Id>
+    <ServiceID>4</ServiceID>
+    <ServiceName>Promjena klime</ServiceName>
+    <Price>1650.0000</Price>
+  </ServiceItem>
+  <Bills>
+    <Id>1</Id>
+    <TravelOrder>1</TravelOrder>
+    <Price>440.0000</Price>
+  </Bills>
+  <Bills>
+    <Id>2</Id>
+    <TravelOrder>1</TravelOrder>
+    <Price>650.0000</Price>
+  </Bills>
+  <Bills>
+    <Id>3</Id>
+    <TravelOrder>2</TravelOrder>
+    <Price>850.0000</Price>
+  </Bills>
+  <Bills>
+    <Id>4</Id>
+    <TravelOrder>3</TravelOrder>
+    <Price>430.0000</Price>
+  </Bills>
+</backup>

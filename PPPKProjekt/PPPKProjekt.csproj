@@ -128,6 +128,7 @@
     <Content Include="Global.asax" />
     <Content Include="i3XML.aspx" />
     <Content Include="i4DAAB.aspx" />
+    <Content Include="i5Backup.aspx" />
     <Content Include="PPPKScript.sql" />
     <Content Include="PutniNalog.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -308,6 +309,13 @@
     </Compile>
     <Compile Include="i4DAAB.aspx.designer.cs">
       <DependentUpon>i4DAAB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="i5Backup.aspx.cs">
+      <DependentUpon>i5Backup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="i5Backup.aspx.designer.cs">
+      <DependentUpon>i5Backup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PutniNalog.aspx.cs">
