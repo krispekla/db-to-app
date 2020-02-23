@@ -50,6 +50,12 @@
       <HintPath>..\packages\AspNet.ScriptManager.bootstrap.4.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -121,6 +127,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="i3XML.aspx" />
+    <Content Include="i4DAAB.aspx" />
     <Content Include="PPPKScript.sql" />
     <Content Include="PutniNalog.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -273,6 +280,7 @@
     <Compile Include="App_Code\ServiceItem.cs" />
     <Compile Include="App_Code\TableObjects\TravelObjectGVFormatted.cs" />
     <Compile Include="App_Code\TravelOrder.cs" />
+    <Compile Include="App_Code\Utils.cs" />
     <Compile Include="App_Code\Vehicle.cs" />
     <Compile Include="App_Code\VehicleFuel.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -293,6 +301,13 @@
     </Compile>
     <Compile Include="i3XML.aspx.designer.cs">
       <DependentUpon>i3XML.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="i4DAAB.aspx.cs">
+      <DependentUpon>i4DAAB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="i4DAAB.aspx.designer.cs">
+      <DependentUpon>i4DAAB.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PutniNalog.aspx.cs">

@@ -16,5 +16,10 @@ namespace PPPKProjekt.App_Code
         public int DistanceCrossed { get; set; }
         public int AvgSpeed { get; set; }
         public int FuelConsumption { get; set; }
+
+        public override string ToString()
+        {
+            return Id.ToString();
+        }
     }
 }

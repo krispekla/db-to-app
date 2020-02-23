@@ -48,16 +48,20 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" runat="server" href="~/Vozaci">Vozaci</a>
-                    </li> 
+                    </li>
                     <li class="nav-item active">
                         <a class="nav-link" runat="server" href="~/Vozila">Vozila</a>
-                    </li> 
+                    </li>
                     <li class="nav-item active">
                         <a class="nav-link" runat="server" href="~/PutniNalog">Putni nalozi</a>
                     </li>
-                         <li class="nav-item active">
+                    <li class="nav-item active">
                         <a class="nav-link" runat="server" href="~/i3XML">i3 XML</a>
                     </li>
+                    </li>
+                         <li class="nav-item active">
+                             <a class="nav-link" runat="server" href="~/i4DAAB">i4 DAAB</a>
+                         </li>
                 </ul>
 
             </div>

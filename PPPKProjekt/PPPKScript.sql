@@ -239,3 +239,43 @@ begin
 	delete from Vehicle where Id = @id
 end
 go
+
+create proc insertRoute
+	@travelOrderID int,
+	@dateStart datetime,
+	@dateEnd datetime,
+	@startCoordinate nvarchar(50),
+	@endCoordinate nvarchar(50),
+	@distance int,
+	@speed int,
+	@fuel int
+AS
+	BEGIN 
+		INSERT INTO Route(TravelOrderID, DateStart, DateEnd, StartCoordinate, EndCoordinate, DistanceCrossed, AverageSpeed, FuelConsumption)
+			VALUES(@travelOrderID, @dateStart,@dateEnd, @startCoordinate,@endCoordinate,@distance, @speed, @fuel)
+	END 
+GO
+
+create proc updateRoute
+	@id int,
+	@dateStart datetime,
+	@dateEnd datetime,
+	@startCoordinate nvarchar(50),
+	@endCoordinate nvarchar(50),
+	@distance int,
+	@speed int,
+	@fuel int
+AS
+	BEGIN 
+		UPDATE Route SET  DateStart = @dateStart, DateEnd = @dateEnd, StartCoordinate = @startCoordinate, EndCoordinate = @endCoordinate, DistanceCrossed = @distance, AverageSpeed = @speed, FuelConsumption = @fuel
+			WHERE Id = @id
+	END 
+GO
+
+create proc deleteRoute
+	@id int
+as 
+begin
+	delete from Route where Id = @id
+end
+go

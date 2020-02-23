@@ -26,6 +26,13 @@ namespace PPPKProjekt.App_Code
         public int? TotalDays { get; set; }
         public decimal? TotalPrice { get; set; }
         public DateTime StartingDate { get; set; }
+
+
+
+        public override string ToString()
+        {
+            return Id.ToString();
+        }
     }
 }
 

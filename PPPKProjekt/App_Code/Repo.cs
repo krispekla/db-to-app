@@ -300,16 +300,16 @@ namespace PPPKProjekt.App_Code
                                     list.Add(new TravelOrder
                                     {
                                         Id = (int)r["Id"],
-                                        OrderStatus = ParseNullable<int>(r["OrderStatus"].ToString()),
-                                        VehicleID = ParseNullable<int>(r["VehicleID"].ToString()),
-                                        DriverID = ParseNullable<int>(r["UserID"].ToString()),
-                                        VehicleStartKM = ParseNullable<int>(r["Vehicle_km_start"].ToString()),
-                                        VehicleEndKM = ParseNullable<int>(r["Vehicle_km_end"].ToString()),
-                                        Distance = ParseNullable<int>(r["Distance_crossed"].ToString()),
+                                        OrderStatus = Utils.ParseNullable<int>(r["OrderStatus"].ToString()),
+                                        VehicleID = Utils.ParseNullable<int>(r["VehicleID"].ToString()),
+                                        DriverID = Utils.ParseNullable<int>(r["UserID"].ToString()),
+                                        VehicleStartKM = Utils.ParseNullable<int>(r["Vehicle_km_start"].ToString()),
+                                        VehicleEndKM = Utils.ParseNullable<int>(r["Vehicle_km_end"].ToString()),
+                                        Distance = Utils.ParseNullable<int>(r["Distance_crossed"].ToString()),
                                         StartingCity = r["Starting_city"].ToString(),
                                         FinishCity = r["Finish_city"].ToString(),
-                                        TotalDays = ParseNullable<int>(r["Total_days"].ToString()),
-                                        TotalPrice = ParseNullable<Decimal>(r["Total_price"].ToString()),
+                                        TotalDays = Utils.ParseNullable<int>(r["Total_days"].ToString()),
+                                        TotalPrice = Utils.ParseNullable<Decimal>(r["Total_price"].ToString()),
                                         StartingDate = DateTime.Parse(r["StartingDate"].ToString()),
                                     });
                                 };
@@ -324,22 +324,6 @@ namespace PPPKProjekt.App_Code
             return list;
         }
 
-
-        public T ParseNullable<T>(string value)
-        {
-            if (value == null || value.Trim() == string.Empty)
-            {
-                return default(T);
-            }
-            else
-            {
-                try { return (T)System.ComponentModel.TypeDescriptor.GetConverter(typeof(T)).ConvertFrom(value.ToString()); }
-                catch
-                {
-                    return default(T);
-                }
-            }
-        }
 
         public int InsertTravelOrder(TravelOrder trOrder)
         {
