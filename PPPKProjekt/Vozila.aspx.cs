@@ -43,7 +43,7 @@ namespace PPPKProjekt
 
         private void DisplayAllVehicles()
         {
-            ddlType.SelectedIndex =  vehicles[ddlVehicles.SelectedIndex].VehicleTypeId - 1;
+            ddlType.SelectedIndex = 0;
             lbPlate.Text = vehicles[ddlVehicles.SelectedIndex].Plate;
             lbBrand.Text = vehicles[ddlVehicles.SelectedIndex].Brand;
             lbYear.Value = ((DateTime)vehicles[ddlVehicles.SelectedIndex].Year).ToString("yyyy");
@@ -67,19 +67,19 @@ namespace PPPKProjekt
 
         private void ClearAllFields()
         {
-            ddlType.SelectedIndex = 1;
+            ddlType.SelectedIndex = 0;
             lbPlate.Text = "";
             lbBrand.Text = "";
             lbYear.Value = "";
             cbIsAvailable.Checked = true;
-            lbMilleage.Text = ""; 
+            lbMilleage.Text = "";
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                int id = vehicles[ddlVehicles.SelectedIndex].Id;
+                int id = vehicles.ElementAt(ddlVehicles.SelectedIndex).Id;
 
                 if (id <= 0) return;
 
@@ -126,7 +126,7 @@ namespace PPPKProjekt
             {
                 Vehicle vehicle = new Vehicle();
                 vehicle.Id = vehicles[ddlVehicles.SelectedIndex].Id;
-                vehicle.VehicleTypeId = ddlType.SelectedIndex;
+                vehicle.VehicleTypeId = vehicles.ElementAt(0).VehicleTypeId;
                 vehicle.Plate = lbPlate.Text;
                 vehicle.Brand = lbBrand.Text;
                 vehicle.Year = new DateTime(Convert.ToInt32(lbYear.Value), 1, 1);
@@ -156,7 +156,7 @@ namespace PPPKProjekt
             try
             {
                 Vehicle vehicle = new Vehicle();
-                vehicle.VehicleTypeId = ddlType.SelectedIndex;
+                vehicle.VehicleTypeId = vehicles.ElementAt(0).VehicleTypeId;
                 vehicle.Plate = lbPlate.Text;
                 vehicle.Brand = lbBrand.Text;
                 vehicle.Year = new DateTime(Convert.ToInt32(lbYear.Value), 1, 1);

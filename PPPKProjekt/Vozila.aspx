@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2 class="m-3">Vozila</h2>
-    <div class="container bg-light mt-3 p-5">
+    <div class="container bg-light mt-3 p-5 shadow">
         <div class="row">
             <div class="col-6">
 

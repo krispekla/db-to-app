@@ -5,8 +5,8 @@
     <Name>Pero</Name>
     <Surname>Peric</Surname>
     <Mobile>0991234567</Mobile>
-    <Created>2/23/2020 2:52:09 PM</Created>
-    <Modified>2/23/2020 2:52:09 PM</Modified>
+    <Created>2/24/2020 9:35:59 PM</Created>
+    <Modified>2/24/2020 9:35:59 PM</Modified>
     <Driving_License>1222867</Driving_License>
   </Users>
   <Users>
@@ -14,17 +14,17 @@
     <Name>Ivan</Name>
     <Surname>Ivanovic</Surname>
     <Mobile>09432134567</Mobile>
-    <Created>2/23/2020 2:52:09 PM</Created>
-    <Modified>2/23/2020 2:52:09 PM</Modified>
-    <Driving_License>7712834</Driving_License>
+    <Created>2/24/2020 9:35:59 PM</Created>
+    <Modified>2/24/2020 9:35:59 PM</Modified>
+    <Driving_License>7712111</Driving_License>
   </Users>
   <Users>
     <Id>3</Id>
     <Name>Arsen</Name>
     <Surname>Dedic</Surname>
     <Mobile>0923334567</Mobile>
-    <Created>2/23/2020 2:52:09 PM</Created>
-    <Modified>2/23/2020 2:52:09 PM</Modified>
+    <Created>2/24/2020 9:35:59 PM</Created>
+    <Modified>2/24/2020 9:35:59 PM</Modified>
     <Driving_License>3426562</Driving_License>
   </Users>
   <VehicleType>
@@ -33,14 +33,10 @@
   </VehicleType>
   <VehicleType>
     <Id>2</Id>
-    <Name>Motor</Name>
-  </VehicleType>
-  <VehicleType>
-    <Id>3</Id>
     <Name>Zrakoplov</Name>
   </VehicleType>
   <VehicleType>
-    <Id>4</Id>
+    <Id>3</Id>
     <Name>Autobus</Name>
   </VehicleType>
   <Vehicle>
@@ -51,8 +47,8 @@
     <Production_Year>1/11/2011 12:00:00 AM</Production_Year>
     <Vehicle_Status>True</Vehicle_Status>
     <Milleage>32420</Milleage>
-    <Created>2/23/2020 2:52:12 PM</Created>
-    <Modified>2/23/2020 2:52:12 PM</Modified>
+    <Created>2/24/2020 9:35:59 PM</Created>
+    <Modified>2/24/2020 9:35:59 PM</Modified>
   </Vehicle>
   <Vehicle>
     <Id>2</Id>
@@ -62,8 +58,8 @@
     <Production_Year>5/3/2012 12:00:00 AM</Production_Year>
     <Vehicle_Status>True</Vehicle_Status>
     <Milleage>72000</Milleage>
-    <Created>2/23/2020 2:52:12 PM</Created>
-    <Modified>2/23/2020 2:52:12 PM</Modified>
+    <Created>2/24/2020 9:35:59 PM</Created>
+    <Modified>2/24/2020 9:35:59 PM</Modified>
   </Vehicle>
   <Vehicle>
     <Id>3</Id>
@@ -73,8 +69,19 @@
     <Production_Year>3/8/2013 12:00:00 AM</Production_Year>
     <Vehicle_Status>True</Vehicle_Status>
     <Milleage>82000</Milleage>
-    <Created>2/23/2020 2:52:12 PM</Created>
-    <Modified>2/23/2020 2:52:12 PM</Modified>
+    <Created>2/24/2020 9:35:59 PM</Created>
+    <Modified>2/24/2020 9:35:59 PM</Modified>
+  </Vehicle>
+  <Vehicle>
+    <Id>4</Id>
+    <VehicleTypeId>1</VehicleTypeId>
+    <Plate>VŽ1123DS</Plate>
+    <Brand>Tesla</Brand>
+    <Production_Year>1/1/2011 12:00:00 AM</Production_Year>
+    <Vehicle_Status>True</Vehicle_Status>
+    <Milleage>32420</Milleage>
+    <Created>2/24/2020 9:38:12 PM</Created>
+    <Modified>2/24/2020 9:38:12 PM</Modified>
   </Vehicle>
   <TravelOrder>
     <Id>1</Id>
@@ -88,8 +95,8 @@
     <Finish_city>Osijek</Finish_city>
     <Total_price></Total_price>
     <Total_days>3</Total_days>
-    <Created>2/23/2020 2:52:14 PM</Created>
-    <Modified>2/23/2020 2:52:14 PM</Modified>
+    <Created>2/24/2020 9:35:59 PM</Created>
+    <Modified>2/24/2020 9:35:59 PM</Modified>
     <StartingDate>5/11/2013 12:00:00 AM</StartingDate>
   </TravelOrder>
   <TravelOrder>
@@ -104,8 +111,8 @@
     <Finish_city>Graz</Finish_city>
     <Total_price></Total_price>
     <Total_days>2</Total_days>
-    <Created>2/23/2020 2:52:14 PM</Created>
-    <Modified>2/23/2020 2:52:14 PM</Modified>
+    <Created>2/24/2020 9:35:59 PM</Created>
+    <Modified>2/24/2020 9:35:59 PM</Modified>
     <StartingDate>8/10/2010 12:00:00 AM</StartingDate>
   </TravelOrder>
   <TravelOrder>
@@ -120,8 +127,8 @@
     <Finish_city>Ljubljana</Finish_city>
     <Total_price></Total_price>
     <Total_days>1</Total_days>
-    <Created>2/23/2020 2:52:14 PM</Created>
-    <Modified>2/23/2020 2:52:14 PM</Modified>
+    <Created>2/24/2020 9:35:59 PM</Created>
+    <Modified>2/24/2020 9:35:59 PM</Modified>
     <StartingDate>11/1/2004 12:00:00 AM</StartingDate>
   </TravelOrder>
   <TravelOrder>
@@ -136,8 +143,8 @@
     <Finish_city>Požega</Finish_city>
     <Total_price></Total_price>
     <Total_days>1</Total_days>
-    <Created>2/23/2020 2:52:14 PM</Created>
-    <Modified>2/23/2020 2:52:14 PM</Modified>
+    <Created>2/24/2020 9:35:59 PM</Created>
+    <Modified>2/24/2020 9:35:59 PM</Modified>
     <StartingDate>8/12/2010 12:00:00 AM</StartingDate>
   </TravelOrder>
   <TravelOrder>
@@ -152,8 +159,8 @@
     <Finish_city>Osijek</Finish_city>
     <Total_price></Total_price>
     <Total_days>1</Total_days>
-    <Created>2/23/2020 2:52:14 PM</Created>
-    <Modified>2/23/2020 2:52:14 PM</Modified>
+    <Created>2/24/2020 9:35:59 PM</Created>
+    <Modified>2/24/2020 9:35:59 PM</Modified>
     <StartingDate>4/11/2010 12:00:00 AM</StartingDate>
   </TravelOrder>
   <TravelOrder>
@@ -168,8 +175,8 @@
     <Finish_city>Varaždin</Finish_city>
     <Total_price></Total_price>
     <Total_days>1</Total_days>
-    <Created>2/23/2020 2:52:14 PM</Created>
-    <Modified>2/23/2020 2:52:14 PM</Modified>
+    <Created>2/24/2020 9:35:59 PM</Created>
+    <Modified>2/24/2020 9:35:59 PM</Modified>
     <StartingDate>2/2/2010 12:00:00 AM</StartingDate>
   </TravelOrder>
   <Route>
@@ -323,18 +330,6 @@
     <ServiceID>3</ServiceID>
     <ServiceName>Promjena ulja</ServiceName>
     <Price>350.0000</Price>
-  </ServiceItem>
-  <ServiceItem>
-    <Id>8</Id>
-    <ServiceID>4</ServiceID>
-    <ServiceName>Promjena ulja</ServiceName>
-    <Price>350.0000</Price>
-  </ServiceItem>
-  <ServiceItem>
-    <Id>9</Id>
-    <ServiceID>4</ServiceID>
-    <ServiceName>Promjena klime</ServiceName>
-    <Price>1650.0000</Price>
   </ServiceItem>
   <Bills>
     <Id>1</Id>

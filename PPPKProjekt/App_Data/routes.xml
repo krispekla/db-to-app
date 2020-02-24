@@ -60,8 +60,8 @@
     <Starting_city>Zagreb</Starting_city>
     <Finish_city>Osijek</Finish_city>
     <Total_days>3</Total_days>
-    <Created>2020-02-22T14:46:56.64+01:00</Created>
-    <Modified>2020-02-22T14:46:56.64+01:00</Modified>
+    <Created>2020-02-24T21:35:59.713+01:00</Created>
+    <Modified>2020-02-24T21:35:59.713+01:00</Modified>
     <StartingDate>2013-05-11T00:00:00+02:00</StartingDate>
     <Route>
       <Id>1</Id>
@@ -95,8 +95,8 @@
     <Starting_city>Zagreb</Starting_city>
     <Finish_city>Graz</Finish_city>
     <Total_days>2</Total_days>
-    <Created>2020-02-22T14:46:56.64+01:00</Created>
-    <Modified>2020-02-22T14:46:56.64+01:00</Modified>
+    <Created>2020-02-24T21:35:59.713+01:00</Created>
+    <Modified>2020-02-24T21:35:59.713+01:00</Modified>
     <StartingDate>2010-08-10T00:00:00+02:00</StartingDate>
     <Route>
       <Id>3</Id>
@@ -119,8 +119,8 @@
     <Starting_city>Velika Gorica</Starting_city>
     <Finish_city>Ljubljana</Finish_city>
     <Total_days>1</Total_days>
-    <Created>2020-02-22T14:46:56.64+01:00</Created>
-    <Modified>2020-02-22T14:46:56.64+01:00</Modified>
+    <Created>2020-02-24T21:35:59.713+01:00</Created>
+    <Modified>2020-02-24T21:35:59.713+01:00</Modified>
     <StartingDate>2004-11-01T00:00:00+01:00</StartingDate>
     <Route>
       <Id>4</Id>
@@ -154,20 +154,9 @@
     <Starting_city>Split</Starting_city>
     <Finish_city>Požega</Finish_city>
     <Total_days>1</Total_days>
-    <Created>2020-02-22T14:46:56.64+01:00</Created>
-    <Modified>2020-02-22T14:46:56.64+01:00</Modified>
+    <Created>2020-02-24T21:35:59.713+01:00</Created>
+    <Modified>2020-02-24T21:35:59.713+01:00</Modified>
     <StartingDate>2010-08-12T00:00:00+02:00</StartingDate>
-    <Route>
-      <Id>6</Id>
-      <TravelOrderID>4</TravelOrderID>
-      <DateStart>2020-02-21T00:00:00+01:00</DateStart>
-      <DateEnd>2020-02-22T00:00:00+01:00</DateEnd>
-      <StartCoordinate>44.5456</StartCoordinate>
-      <EndCoordinate>43.2343</EndCoordinate>
-      <DistanceCrossed>425</DistanceCrossed>
-      <AverageSpeed>23</AverageSpeed>
-      <FuelConsumption>65</FuelConsumption>
-    </Route>
   </TravelOrder>
   <TravelOrder>
     <Id>5</Id>
@@ -178,8 +167,8 @@
     <Starting_city>Dubrovnik</Starting_city>
     <Finish_city>Osijek</Finish_city>
     <Total_days>1</Total_days>
-    <Created>2020-02-22T14:46:56.64+01:00</Created>
-    <Modified>2020-02-22T14:46:56.64+01:00</Modified>
+    <Created>2020-02-24T21:35:59.713+01:00</Created>
+    <Modified>2020-02-24T21:35:59.713+01:00</Modified>
     <StartingDate>2010-04-11T00:00:00+02:00</StartingDate>
   </TravelOrder>
   <TravelOrder>
@@ -191,8 +180,8 @@
     <Starting_city>Pula</Starting_city>
     <Finish_city>Varaždin</Finish_city>
     <Total_days>1</Total_days>
-    <Created>2020-02-22T14:46:56.64+01:00</Created>
-    <Modified>2020-02-22T14:46:56.64+01:00</Modified>
+    <Created>2020-02-24T21:35:59.713+01:00</Created>
+    <Modified>2020-02-24T21:35:59.713+01:00</Modified>
     <StartingDate>2010-02-02T00:00:00+01:00</StartingDate>
   </TravelOrder>
 </TravelOrderRoutes>

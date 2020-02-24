@@ -146,7 +146,7 @@ namespace PPPKProjekt
         {
             try
             {
-                int id = drivers[ddlDrivers.SelectedIndex].Id;
+                int id = drivers.ElementAt(ddlDrivers.SelectedIndex).Id;
 
                 if (id <= 0) return;
 

@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1 class="m-3">Putni nalozi</h1>
-    <div class="container bg-light mt-3 p-5">
+    <div class="container bg-light mt-3 p-5 shadow">
         <h2>Prikaz naloga</h2>
         <br />
         <div class="row mx-auto">

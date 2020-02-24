@@ -72,7 +72,7 @@ namespace PPPKProjekt
                     Id = item.Id,
                     OrderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus), item.OrderStatus.ToString()),
                     Vehicle = _vehicles.FirstOrDefault(x => x.Id == item.VehicleID).ToString(),
-                    Driver = _drivers.FirstOrDefault(y => y.Id == item.VehicleID).ToString(),
+                    Driver = _drivers.FirstOrDefault(y => y.Id == item.DriverID).ToString(),
                     VehicleStartKM = item.VehicleStartKM,
                     VehicleEndKM = item.VehicleEndKM,
                     Distance = item.Distance,
@@ -99,13 +99,13 @@ namespace PPPKProjekt
             DisplayAllDrivers();
             ddlVehicle.DataSource = _vehicles;
             ddlVehicle.DataBind();
-            ddlVehicle.SelectedIndex = _vehicles.SingleOrDefault(x => x.Id == _orders.SingleOrDefault(y => y.Id == int.Parse(ddlSelectedOrder.SelectedValue)).VehicleID).Id - 1;
-            ddlDriver.SelectedIndex = _drivers.SingleOrDefault(x => x.Id == _orders.SingleOrDefault(y => y.Id == int.Parse(ddlSelectedOrder.SelectedValue)).DriverID).Id - 1;
+            ddlVehicle.SelectedIndex = _vehicles.FindIndex(x => x.Id == _orders.FirstOrDefault(y => y.Id == int.Parse(ddlSelectedOrder.SelectedValue)).VehicleID);
+            ddlDriver.SelectedIndex = _drivers.FindIndex(x => x.Id == _orders.FirstOrDefault(y => y.Id == int.Parse(ddlSelectedOrder.SelectedValue)).DriverID);
         }
 
         private void DisplayAllDrivers()
         {
-            ddlOrderStatus.SelectedIndex = _orders.SingleOrDefault(x => x.Id == int.Parse(ddlSelectedOrder.SelectedValue)).OrderStatus - 1;
+            ddlOrderStatus.SelectedIndex = _orders.FirstOrDefault(x => x.Id == int.Parse(ddlSelectedOrder.SelectedValue)).OrderStatus - 1;
 
             lbStartCity.Text = _orders[ddlSelectedOrder.SelectedIndex].StartingCity;
             lbFinishCity.Text = _orders[ddlSelectedOrder.SelectedIndex].FinishCity;
